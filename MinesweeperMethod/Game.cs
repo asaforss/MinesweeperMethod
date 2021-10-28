@@ -24,7 +24,7 @@ namespace MinesweeperMethod
         private static char[,] OpenChip(char[,] board, int col, int row)
         {
             //number of neighbour mines
-            int number = 0;
+            int numberMines = 0;
             openedChips++;
 
             if (openedChips >= MaxChips)
@@ -38,20 +38,20 @@ namespace MinesweeperMethod
                 {
                     if (ItIsAMine(board, col - 1, row - 1))
                     {
-                        number++;
+                        numberMines++;
                     }
 
                 }
 
                 if (ItIsAMine(board, col - 1, row))
                 {
-                    number++;
+                    numberMines++;
                 }
                 if (row < board.GetLength(0) - 1)
                 {
                     if (ItIsAMine(board, col - 1, row + 1))
                     {
-                        number++;
+                        numberMines++;
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace MinesweeperMethod
                 if (ItIsAMine(board, col, row - 1))
                 {
 
-                    number++;
+                    numberMines++;
                 }
             }
 
@@ -69,7 +69,7 @@ namespace MinesweeperMethod
             {
                 if (ItIsAMine(board, col, row + 1))
                 {
-                    number++;
+                    numberMines++;
                 }
             }
 
@@ -79,25 +79,25 @@ namespace MinesweeperMethod
                 {
                     if (ItIsAMine(board, col + 1, row - 1))
 
-                        number++;
+                        numberMines++;
 
                 }
                 if (ItIsAMine(board, col + 1, row))
                 {
-                    number++;
+                    numberMines++;
                 }
                 if (row < board.GetLength(0) - 1)
                 {
                     if (ItIsAMine(board, col + 1, row + 1))
                     {
-                        number++;
+                        numberMines++;
                     }
                 }
             }
 
-            board[row, col] = number.ToString().ToCharArray().First();
+            board[row, col] = numberMines.ToString().ToCharArray().First();
 
-            if (number == 0)
+            if (numberMines == 0)
             {
                 if (col > 0)
                 {
