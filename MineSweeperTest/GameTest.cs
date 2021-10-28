@@ -6,29 +6,9 @@ namespace MineSweeperTest
     [TestClass]
     public class GameTest
     {
+       
         [TestMethod]
-        public void Exempel1()
-        {
-            char[,] start = new char[,] { { 'M', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'M', 'E' } };
-            char[,] after = new char[,] { { 'M', '1', '0' }, { 'E', '2', '1' }, { 'E', 'M', 'E' } };
-            int col = 2;
-            int row = 0;
-            char[,] fromCall;
-
-            fromCall = Game.PerformeMove(start, col, row);
-
-            for (int i = 0; i < after.GetLength(1); i++)
-            {
-                for (int j = 0; j < after.GetLength(0); j++)
-                {
-                    Assert.AreEqual(after[j, i], fromCall[j, i],"Fel på postiton "+i+","+j);
-                }
-            }
-
-        }
-
-        [TestMethod]
-        public void Test_ClickOnMine1()
+        public void ClickOnMine1()
         {
             char[,] start = new char[,] { { 'M', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'M', 'E' } };
             char[,] after = new char[,] { { 'X', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'M', 'E' } };
@@ -46,8 +26,9 @@ namespace MineSweeperTest
                 }
             }
         }
+
         [TestMethod]
-        public void Test_ClickOnMine2()
+        public void ClickOnMine2()
         {
             char[,] start = new char[,] { { 'M', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'M', 'E' } };
             char[,] after = new char[,] { { 'M', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'X', 'E' } };
@@ -65,6 +46,28 @@ namespace MineSweeperTest
                 }
             }
         }
+
+        [TestMethod]
+        public void Exempel1()
+        {
+            char[,] start = new char[,] { { 'M', 'E', 'E' }, { 'E', 'E', 'E' }, { 'E', 'M', 'E' } };
+            char[,] after = new char[,] { { 'M', '1', '0' }, { 'E', '2', '1' }, { 'E', 'M', 'E' } };
+            int col = 2;
+            int row = 0;
+            char[,] fromCall;
+
+            fromCall = Game.PerformeMove(start, col, row);
+
+            for (int i = 0; i < after.GetLength(1); i++)
+            {
+                for (int j = 0; j < after.GetLength(0); j++)
+                {
+                    Assert.AreEqual(after[j, i], fromCall[j, i], "Fel på postiton " + i + "," + j);
+                }
+            }
+
+        }
+
         [TestMethod]
         public void Exempel3()
         {
@@ -84,7 +87,6 @@ namespace MineSweeperTest
                 }
             }
         }
-
     }
 }
 
