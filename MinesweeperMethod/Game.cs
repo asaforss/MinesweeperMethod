@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MinesweeperMethod
 {
@@ -26,8 +23,10 @@ namespace MinesweeperMethod
         
         private static char[,] OpenChip(char[,] board, int col, int row)
         {
+            //number of neighbour mines
             int number = 0;
             openedChips++;
+
             if (openedChips >= MaxChips)
                 return board;
 
